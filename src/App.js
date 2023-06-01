@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import ClassFormComponent from './Components/ClassFormComponent/ClassFormComponent';
+import FunctionFormComponent from './Components/FunctionFormComponent/FunctionFormComponent';
+import { Link, BrowserRouter as Router, Routes,Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className="App-header">
+
+        <Router>
+          <nav>
+            <ul>
+              <li><Link to="/">Class Component</Link></li>
+              <li><Link to="/function-component">Function Component</Link></li>
+            </ul>
+          </nav>
+          <Routes>
+            <Route exact path='/' element={<ClassFormComponent />}></Route>
+            <Route exact path='/function-component' element={<FunctionFormComponent />}></Route>
+          </Routes>
+          
+        </Router>
+
+
+      </section>
     </div>
   );
 }
